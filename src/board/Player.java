@@ -1,5 +1,6 @@
 package board;
 
+import cards.Card;
 public class Player{
   Hand h;
   Display d;

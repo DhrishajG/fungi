@@ -1,5 +1,6 @@
 package board;
 
+import cards.Card;
 import java.util.ArrayList;
 
 public class Hand implements Displayable{

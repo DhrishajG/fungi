@@ -1,6 +1,7 @@
 package board;
 
 import java.util.*;
+import cards.Card;
 
 class CardPile{
   private Stack<Card> cPile;

@@ -1,6 +1,7 @@
 package board;
 
 import java.util.ArrayList;
+import cards.Card;
 
 public class Display implements Displayable{
   private ArrayList<Card> displayList;
