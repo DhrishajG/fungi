@@ -1,6 +1,5 @@
 package board;
 
-import cards.Card;
 import java.util.*;
 
 class CardPile{
@@ -33,5 +32,5 @@ class CardPile{
     }
     return false;
   }
-  
+
 }

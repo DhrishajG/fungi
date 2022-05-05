@@ -1,7 +1,6 @@
 package board;
 
 import java.util.ArrayList;
-import cards.*;
 
 
 public class Board{
@@ -86,6 +85,6 @@ public class Board{
   }
 
   public void updateDecayPile(){
-    
+
   }
 }

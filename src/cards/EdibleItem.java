@@ -7,7 +7,7 @@ public abstract class EdibleItem extends Card{
     super(ctype, cname);
   }
 
-  public getFlavourPoints(){
+  public int getFlavourPoints(){
     return flavourPoints;
   }
 }

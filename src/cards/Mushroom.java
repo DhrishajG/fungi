@@ -7,7 +7,7 @@ public class Mushroom extends EdibleItem{
     super(ctype, cname);
   }
 
-  public getSticksPerMushroom(){
+  public int getSticksPerMushroom(){
     return sticksPerMushroom;
   }
 }

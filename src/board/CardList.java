@@ -1,7 +1,6 @@
 package board;
 
 import java.util.ArrayList;
-import cards.Card;
 
 public class CardList{
   private ArrayList<Card> cList;
@@ -19,7 +18,7 @@ public class CardList{
   }
 
   public Card getElementsAt(int index){
-    return cList.get(index)
+    return cList.get(index);
   }
 
   public Card removeCardAt(int index){

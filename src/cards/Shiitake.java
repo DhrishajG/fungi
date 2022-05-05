@@ -2,6 +2,6 @@ package cards;
 
 public class Shiitake extends Mushroom{
   public Shiitake(CardType ctype){
-    super(ctype, 'SHIITAKE');
+    super(ctype, "SHIITAKE");
   }
 }

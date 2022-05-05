@@ -2,6 +2,6 @@ package cards;
 
 public class TreeEar extends Mushroom{
   public TreeEar(CardType ctype){
-    super(ctype, 'TREE EAR');
+    super(ctype, "TREE EAR");
   }
 }
