@@ -17,59 +17,59 @@ public class Board{
 
   public void setUpCards(){
     for(int i=0; i<10; i++){
-      forestCardsPile.addCard(cards.HoneyFungus(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(HoneyFungus(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.HoneyFungus(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(HoneyFungus(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<8; i++){
-      forestCardsPile.addCard(cards.TreeEar(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(TreeEar(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.TreeEar(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(TreeEar(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<6; i++){
-      forestCardsPile.addCard(cards.LawyersWig(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(LawyersWig(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.LawyersWig(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(LawyersWig(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<5; i++){
-      forestCardsPile.addCard(cards.Shiitake(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(Shiitake(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.Shiitake(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(Shiitake(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<5; i++){
-      forestCardsPile.addCard(cards.HenOfWoods(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(HenOfWoods(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.HenOfWoods(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(HenOfWoods(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<4; i++){
-      forestCardsPile.addCard(cards.BirchBolete(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(BirchBolete(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.BirchBolete(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(BirchBolete(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<4; i++){
-      forestCardsPile.addCard(cards.Porcini(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(Porcini(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.Porcini(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(Porcini(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<4; i++){
-      forestCardsPile.addCard(cards.Chanterelle(cards.CardType.DAYMUSHROOM));
+      forestCardsPile.addCard(Chanterelle(CardType.DAYMUSHROOM));
     }
-    forestCardsPile.addCard(cards.Chanterelle(cards.CardType.NIGHTMUSHROOM));
+    forestCardsPile.addCard(Chanterelle(CardType.NIGHTMUSHROOM));
 
     for(int i=0; i<3; i++){
-      forestCardsPile.addCard(cards.Morel(cards.CardType.DAYMUSHROOM));
-    }
-
-    for(int i=0; i<3; i++){
-      forestCardsPile.addCard(cards.Butter());
+      forestCardsPile.addCard(Morel(CardType.DAYMUSHROOM));
     }
 
     for(int i=0; i<3; i++){
-      forestCardsPile.addCard(cards.Cider());
+      forestCardsPile.addCard(Butter());
+    }
+
+    for(int i=0; i<3; i++){
+      forestCardsPile.addCard(Cider());
     }
 
     for(int i=0; i<11; i++){
-      forestCardsPile.addCard(cards.Pan());
+      forestCardsPile.addCard(Pan());
     }
   }
 
