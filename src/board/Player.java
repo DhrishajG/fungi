@@ -28,7 +28,7 @@ public class Player{
   public void addSticks(int n){
     sticks += n;
     for(int i=0; i<n; i++){
-      Card s = new cards.Stick()
+      Card s = new cards.Stick();
       d.add(s);
     }
   }

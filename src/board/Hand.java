@@ -14,7 +14,7 @@ public class Hand implements Displayable{
   }
 
   public Card getElementsAt(int index){
-    return handList.get(index)
+    return handList.get(index);
   }
 
   public Card removeElement(int index){
