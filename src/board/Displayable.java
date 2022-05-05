@@ -1,4 +1,5 @@
 package board;
+import cards.Card;
 
 public interface Displayable{
   public void addCard(Card c);
