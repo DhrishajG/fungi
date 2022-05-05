@@ -22,7 +22,7 @@ public class CardList{
     return cList.get(index);
   }
 
-  public Card removeCardAt(int index){
+  public ArrayList<Card> removeCardAt(int index){
     cList.remove(index);
     return cList;
   }

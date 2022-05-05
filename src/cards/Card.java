@@ -7,7 +7,7 @@ public abstract class Card{
 
   public Card(CardType ctype, String cname){
     type = ctype;
-    name = cname;
+    cardName = cname;
   }
 
   public CardType getType(){
