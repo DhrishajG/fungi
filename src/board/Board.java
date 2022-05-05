@@ -1,7 +1,7 @@
 package board;
 
 import java.util.ArrayList;
-import cards;
+import cards.*;
 
 
 public class Board{
