@@ -5,17 +5,17 @@ import cards.*;
 
 
 public class Board{
-  private CardPile forestCardsPile;
-  private CardList forest;
-  private ArrayList<Card> decayPile;
+  private static CardPile forestCardsPile;
+  private static CardList forest;
+  private static ArrayList<Card> decayPile;
 
-  public void initialisePiles(){
+  public static void initialisePiles(){
     forestCardsPile = new CardPile();
     forest = new CardList();
     decayPile = new ArrayList<Card>();
   }
 
-  public void setUpCards(){
+  public static void setUpCards(){
     for(int i=0; i<10; i++){
       forestCardsPile.addCard(new HoneyFungus(CardType.DAYMUSHROOM));
     }
@@ -73,19 +73,19 @@ public class Board{
     }
   }
 
-  public CardPile getForestCardsPile(){
+  public static CardPile getForestCardsPile(){
     return forestCardsPile;
   }
 
-  public CardList getForest(){
+  public static CardList getForest(){
     return forest;
   }
 
-  public ArrayList<Card> getDecayPile(){
+  public static ArrayList<Card> getDecayPile(){
     return decayPile;
   }
 
-  public void updateDecayPile(){
+  public static void updateDecayPile(){
     int s = forest.size();
     if(s != 0){
       Card c = forest.removeCardAt(s-1);
