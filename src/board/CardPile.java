@@ -3,7 +3,7 @@ package board;
 import java.util.*;
 import cards.Card;
 
-class CardPile{
+public class CardPile{
   private Stack<Card> cPile;
 
   public CardPile(){
