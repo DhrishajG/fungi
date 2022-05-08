@@ -18,7 +18,7 @@ public class CardList{
     return cList.size();
   }
 
-  public Card getElementsAt(int index){
+  public Card getElementAt(int index){
     return cList.get(index);
   }
 
