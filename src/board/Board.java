@@ -88,8 +88,7 @@ public class Board{
   public void updateDecayPile(){
     int s = forest.size();
     if(s != 0){
-      Card c = forest.getElementAt(s-1);
-      forest = forest.removeCardAt(s-1);
+      Card c = forest.removeCardAt(s-1);
       decayPile.add(c);
     }
   }

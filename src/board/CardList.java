@@ -22,8 +22,9 @@ public class CardList{
     return cList.get(index);
   }
 
-  public ArrayList<Card> removeCardAt(int index){
+  public Card removeCardAt(int index){
+    Card c = this.getElementAt(size()-1);
     cList.remove(index);
-    return cList;
+    return c;
   }
 }
