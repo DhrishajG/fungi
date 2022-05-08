@@ -73,7 +73,7 @@ public class Board{
     }
   }
 
-  public CardPile getForestCardPile(){
+  public CardPile getForestCardsPile(){
     return forestCardsPile;
   }
 
