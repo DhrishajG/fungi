@@ -69,18 +69,19 @@ public class Player{
   }
 
   public boolean takeCardFromTheForest(int n){
-    if(h.size()+1 <= handlimit && Board.getForest().size() >= n){
-      if(sticks >= (n-2)){
-        Card c = Board.getForest().removeCardAt(Board.getForest().size()-(n+1));
-        h.add(c);
-        if(c.getName().equals("basket")){
-          handlimit += 2;
-        }
-        if(n!=1 && n!=2){
-          removeSticks(2);
-        }
-        return true;
+    if(sticks >= (n-2)){
+      Card c = Board.getForest().removeCardAt(Board.getForest().size()-(n));
+      if(c.getName().equals("basket")){
+        handlimit += 2;
+        d.add(c);
       }
+      else if(h.size() < handlimit){
+        h.add(c);
+      }
+      if(n!=1 && n!=2){
+        removeSticks(n-2);
+      }
+      return true;
     }
     return false;
   }
@@ -90,7 +91,7 @@ public class Player{
       int increaseHandLimit = 0;
       for(int i=0; i<Board.getDecayPile().size(); i++){
         Card c = Board.getDecayPile().get(i);
-        this.addCardtoHand(c);
+        addCardtoHand(c);
         if(c.getName().equals("basket")){
           increaseHandLimit += 2;
         }
