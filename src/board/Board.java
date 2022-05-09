@@ -71,6 +71,11 @@ public class Board{
     for(int i=0; i<11; i++){
       forestCardsPile.addCard(new Pan());
     }
+
+    for(int i=0; i<5; i++){
+      forestCardsPile.addCard(new Basket());
+    }
+
   }
 
   public static CardPile getForestCardsPile(){

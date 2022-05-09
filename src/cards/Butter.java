@@ -2,6 +2,7 @@ package cards;
 
 public class Butter extends EdibleItem{
   public Butter(){
-    super(CardType.BUTTER, "BUTTER");
+    super(CardType.BUTTER, "butter");
+    flavourPoints = 3;
   }
 }

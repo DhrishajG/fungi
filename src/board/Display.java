@@ -4,14 +4,10 @@ import java.util.ArrayList;
 import cards.Card;
 
 public class Display implements Displayable{
-  private ArrayList<Card> displayList;
-
-  public Display(){
-    displayList = new ArrayList<Card>();
-  }
+  private ArrayList<Card> displayList = new ArrayList<Card>();
 
   public void add(Card c){
-    displayList.add(0, c);
+    displayList.add(c);
   }
 
   public int size(){
@@ -23,8 +19,6 @@ public class Display implements Displayable{
   }
 
   public Card removeElement(int index){
-    Card c = displayList.get(index);
-    displayList.remove(c);
-    return c;
+    return displayList.remove(index);
   }
 }

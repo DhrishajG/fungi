@@ -2,6 +2,6 @@ package cards;
 
 public class Basket extends Card{
   public Basket(){
-    super(CardType.BASKET, "BASKET");
+    super(CardType.BASKET, "basket");
   }
 }
