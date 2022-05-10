@@ -4,9 +4,9 @@ import cards.*;
 import java.util.ArrayList;
 
 public class Player{
-  Hand h;
-  Display d;
-  int score, handlimit, sticks;
+  private Hand h;
+  private Display d;
+  private int score, handlimit, sticks;
 
   public Player(){
     h = new Hand();
@@ -61,7 +61,13 @@ public class Player{
   }
 
   public void addCardtoHand(Card c){
-    h.add(c);
+    if(c.getName().equals("basket")){
+      addCardtoDisplay(c);
+      handlimit += 2;
+    }
+    else{
+      h.add(c);
+    }
   }
 
   public void addCardtoDisplay(Card c){
@@ -87,16 +93,26 @@ public class Player{
   }
 
   public boolean takeFromDecay(){
-    if((h.size()+Board.getDecayPile().size()) <= handlimit){
-      int increaseHandLimit = 0;
+    int dsize = Board.getDecayPile().size();
+    int pihl = 0; //potential increase in hand limit.
+    for(int i=0; i<Board.getDecayPile().size(); i++){
+      Card c = Board.getDecayPile().get(i);
+      if(c.getName().equals("basket")){
+        pihl += 2;
+        dsize -= 1;
+      }
+    }
+    if((h.size() + dsize) <= (handlimit+pihl)){
       for(int i=0; i<Board.getDecayPile().size(); i++){
         Card c = Board.getDecayPile().get(i);
-        addCardtoHand(c);
         if(c.getName().equals("basket")){
-          increaseHandLimit += 2;
+          d.add(c);
+          handlimit += 2;
+        }
+        else{
+          h.add(c);
         }
       }
-      handlimit += increaseHandLimit;
       Board.getDecayPile().clear();
       return true;
     }
@@ -104,22 +120,113 @@ public class Player{
   }
 
   public boolean cookMushrooms(ArrayList<Card> shrooms){
+    int addScore = 0;
     boolean isPanInList = false;
     boolean isPanInDisplay = false;
+    int numCider = 0;
+    int numButter = 0;
+    int mushroomIndex = -1;
+    boolean canCook = false;
+    boolean res = false;
     for(int i=0; i<shrooms.size(); i++){
       if(shrooms.get(i).getName().equals("pan")){
         isPanInList = true;
-        break;
+      }
+      else if(shrooms.get(i).getType() == CardType.DAYMUSHROOM || shrooms.get(i).getType() == CardType.NIGHTMUSHROOM){
+        mushroomIndex = i;
+      }
+      else if(shrooms.get(i).getType() == CardType.CIDER){
+        numCider += 1;
+      }
+      else if(shrooms.get(i).getType() == CardType.BUTTER){
+        numButter += 1;
+      }
+      else if(shrooms.get(i).getType() == CardType.BASKET){
+        return false;
       }
     }
-    if(isPanInList == false){
+
+    for(int i=0; i<d.size(); i++){
+      if(d.getElementAt(i).getName().equals("pan")){
+        isPanInDisplay = true;
+      }
+    }
+
+
+    if(mushroomIndex == -1){
+      return false;
+    }
+
+    if(isPanInList == true || isPanInDisplay == true){
+      int mushcount = 0;
+      Card mush = shrooms.get(mushroomIndex);
+      for(int i=0; i<shrooms.size(); i++){
+        Card c = shrooms.get(i);
+        if(c.getType() == CardType.DAYMUSHROOM || c.getType() == CardType.NIGHTMUSHROOM){
+          if(c.getName().equals(mush.getName()) != true){
+            return false;
+          }
+          if(c.getType() == CardType.DAYMUSHROOM){
+            mushcount += 1;
+          }
+          else if(c.getType() == CardType.NIGHTMUSHROOM){
+            mushcount += 2;
+          }
+        }
+      }
+      if(mushcount < 3){
+        return false;
+      }
+
+      int mushRequired = (numCider*5) + (numButter*4);
+
+      if(numCider == 0 && numButter == 0){
+        mushRequired = 3;
+      }
+
+      if(mushcount >= mushRequired){
+        canCook = true;
+      }
+      if(canCook){
+        for(int i=0; i<shrooms.size(); i++){
+          if(shrooms.get(i).getName().equals("pan") == false && shrooms.get(i).getName().equals("basket") == false){
+            EdibleItem e = (EdibleItem)shrooms.get(i);
+            if(shrooms.get(i).getType() == CardType.NIGHTMUSHROOM){
+              score += e.getFlavourPoints()*2;
+            }
+            else{
+              score += e.getFlavourPoints();
+            }
+          }
+          else if(shrooms.get(i).getName().equals("basket")){
+            handlimit += 2;
+          }
+          d.add(shrooms.get(i));
+        }
+        res = true;
+      }
+    }
+    return res;
+  }
+
+  public boolean sellMushrooms(String n, int quantity){
+    if(quantity < 2){
+      return false;
+    }
+    String mushroomName = "";
+    for(int i=0; i<n.length(); i++){
+      char c = n.charAt(i);
+      if(Character.isLetter(c) == false){
+        continue;
+      }
+      if(Character.isUpperCase(c)){
+        c = Character.toLowerCase(c);
+      }
+      mushroomName += c;
+
 
     }
     return false;
-  }
-
-  public boolean sellMushrooms(String n, int i){
-    return true;
   }
 
   public boolean putPanDown(){

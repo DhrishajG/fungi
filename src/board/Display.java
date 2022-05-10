@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import cards.Card;
 
 public class Display implements Displayable{
-  private ArrayList<Card> displayList = new ArrayList<Card>();
+  private ArrayList<Card> displayList;
+
+  public Display(){
+    displayList = new ArrayList<Card>();
+  }
 
   public void add(Card c){
     displayList.add(c);
