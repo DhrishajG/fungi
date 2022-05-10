@@ -210,23 +210,75 @@ public class Player{
   }
 
   public boolean sellMushrooms(String n, int quantity){
+    boolean mushFound = false;
+    boolean mushInHand = false;
+    String[] mushNames = {"birchbolete", "chanterelle", "henofwoods", "honeyfungus", "lawyerswig", "morel", "porcini", "shiitake", "treeear"};
+
     if(quantity < 2){
       return false;
     }
     String mushroomName = "";
     for(int i=0; i<n.length(); i++){
       char c = n.charAt(i);
-      if(Character.isLetter(c) == false){
-        continue;
+      if(Character.isLetter(c)){
+        if(Character.isUpperCase(c)){
+          c = Character.toLowerCase(c);
+        }
+        mushroomName += c;
       }
-      if(Character.isUpperCase(c)){
-        c = Character.toLowerCase(c);
-      }
-      mushroomName += c;
+    }
 
+    for(int i=0; i<mushNames.length; i++){
+      if(mushroomName.equals(mushNames[i])){
+        mushFound = true;
+      }
+    }
+
+    if(mushFound == false){
+      return false;
+    }
+
+    ArrayList<Card> shrooms = new ArrayList<Card>();
+    int count = 0;
+
+    for(int i=0; i<h.size(); i++){
+      if(h.getElementAt(i).getName().equals(mushroomName)){
+        mushInHand = true;
+        if(h.getElementAt(i).getType() == CardType.NIGHTMUSHROOM){
+          count ++;
+        }
+        shrooms.add(h.getElementAt(i));
+        h.removeElement(i);
+        i -= 1;
+        count ++;
+        if(count == quantity){
+          break;
+        }
+      }
 
     }
-    return false;
+
+    if(mushInHand == false){
+      return false;
+    }
+
+    if(count < quantity){
+      return false;
+    }
+
+    for(int i=0; i<shrooms.size(); i++){
+      Mushroom c = (Mushroom)shrooms.get(i);
+      int stickCount = c.getSticksPerMushroom();
+      if(c.getType() == CardType.NIGHTMUSHROOM){
+        stickCount *= 2;
+        addSticks(stickCount);
+      }
+      else if(c.getType() == CardType.DAYMUSHROOM){
+        addSticks(stickCount);
+      }
+    }
+
+    return true;
   }
 
   public boolean putPanDown(){
